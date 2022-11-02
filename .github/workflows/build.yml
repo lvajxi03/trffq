@@ -1,4 +1,4 @@
-name: Audit
+name: Build
 
 on: [push, pull_request]
 
@@ -12,6 +12,9 @@ jobs:
         uses: actions/setup-go@v2
         with:
           go-version: 1.18
+
+      - name: OpenGL setup
+        uses: openrndr/setup-opengl@1.1
 
       - name: Verify dependencies
         run: go mod verify
