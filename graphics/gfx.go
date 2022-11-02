@@ -19,7 +19,7 @@ func FontBounds2Rect(rect image.Rectangle, newx, newy, margin int) *primi.Rect {
 	w := float64(rect.Max.X - rect.Min.X + margin)
 	h := float64(rect.Max.Y - rect.Min.Y + margin)
 	y := float64(newy) - h
-	r := &primi.Rect{float64(newx), y, w, h}
+	r := &primi.Rect{X: float64(newx), Y: y, W: w, H: h}
 	return r
 }
 
