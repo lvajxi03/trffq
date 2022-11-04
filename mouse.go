@@ -12,9 +12,9 @@ func (traffiq *Traffiq) LeftMouseClick() {
 		case BOARD_INTRO:
 			traffiq.LeftMouseClickIntro()
 		case BOARD_MENU:
-			traffiq.LeftMouseClickMenu() 
-		case BOARD_GAME:			
-		traffiq.LeftMouseClickGame()
+			traffiq.LeftMouseClickMenu()
+		case BOARD_GAME:
+			traffiq.LeftMouseClickGame()
 		case BOARD_OPTIONS:
 			traffiq.LeftMouseClickOptions()
 		case BOARD_LOADGAME:
@@ -41,9 +41,9 @@ func (traffiq *Traffiq) RightMouseClick() {
 		case BOARD_INTRO:
 			traffiq.RightMouseClickIntro()
 		case BOARD_MENU:
-			traffiq.RightMouseClickMenu() 
-		case BOARD_GAME:			
-		traffiq.RightMouseClickGame()
+			traffiq.RightMouseClickMenu()
+		case BOARD_GAME:
+			traffiq.RightMouseClickGame()
 		case BOARD_OPTIONS:
 			traffiq.RightMouseClickOptions()
 		case BOARD_LOADGAME:
@@ -70,9 +70,9 @@ func (traffiq *Traffiq) MiddleMouseClick() {
 		case BOARD_INTRO:
 			traffiq.MiddleMouseClickLoading()
 		case BOARD_MENU:
-			traffiq.MiddleMouseClickMenu() 
-		case BOARD_GAME:			
-		traffiq.MiddleMouseClickGame()
+			traffiq.MiddleMouseClickMenu()
+		case BOARD_GAME:
+			traffiq.MiddleMouseClickGame()
 		case BOARD_OPTIONS:
 			traffiq.MiddleMouseClickOptions()
 		case BOARD_LOADGAME:
@@ -97,7 +97,7 @@ func (traffiq *Traffiq) LeftMouseClickLoading() {
 	}
 }
 
-func (traffiq *Traffiq) LeftMouseClickIntro(){
+func (traffiq *Traffiq) LeftMouseClickIntro() {
 	if traffiq != nil {
 		traffiq.ChangeBoard(BOARD_MENU)
 	}
@@ -105,13 +105,13 @@ func (traffiq *Traffiq) LeftMouseClickIntro(){
 
 func (traffiq *Traffiq) LeftMouseClickMenu() {
 	if traffiq != nil {
-		x, y := ebiten.CursorPosition()		        
+		x, y := ebiten.CursorPosition()
 		for index, rect := range traffiq.Menu.Rectangles {
 			if rect.Contains(float64(x), float64(y)) {
 				traffiq.ChangeBoard(menu2board[index])
 			}
 		}
-			for index, rect := range traffiq.Menu.LangRectangles {
+		for index, rect := range traffiq.Menu.LangRectangles {
 
 			if rect.Contains(float64(x), float64(y)) {
 				traffiq.ChangeLang(index)
@@ -120,27 +120,39 @@ func (traffiq *Traffiq) LeftMouseClickMenu() {
 	}
 }
 
+func (traffiq *Traffiq) Temporary_Placeholder() {
+	// TODO: remove me
+}
+
 func (traffiq *Traffiq) LeftMouseClickGame() {
 	if traffiq != nil {
-		
+		switch Traffiq.Mode {
+		case MODE_INIT:
+			traffiq.Temporary_Placeholder()
+		case MODE_PLAY:
+			traffiq.Temporary_Placeholder()
+		case MODE_PAUSED:
+			traffiq.Temporary_Placeholder()
+		}
 	}
 }
 
 func (traffiq *Traffiq) LeftMouseClickOptions() {
 	if traffiq != nil {
-		
+		traffiq.Temporary_Placeholder()
 	}
 }
 
 func (traffiq *Traffiq) LeftMouseClickLoadgame() {
 	if traffiq != nil {
-		
+		traffiq.Temporary_Placeholder()
+
 	}
 }
 
 func (traffiq *Traffiq) LeftMouseClickHiscores() {
 	if traffiq != nil {
-		x, y := ebiten.CursorPosition()		        
+		x, y := ebiten.CursorPosition()
 		for index, rect := range traffiq.Menu.LangRectangles {
 
 			if rect.Contains(float64(x), float64(y)) {
@@ -154,19 +166,21 @@ func (traffiq *Traffiq) LeftMouseClickHiscores() {
 
 func (traffiq *Traffiq) LeftMouseClickSettings() {
 	if traffiq != nil {
-		
+		traffiq.Temporary_Placeholder()
+
 	}
 }
 
 func (traffiq *Traffiq) LeftMouseClickNewscore() {
 	if traffiq != nil {
-		
+		traffiq.Temporary_Placeholder()
+
 	}
 }
 
 func (traffiq *Traffiq) LeftMouseClickHelp() {
 	if traffiq != nil {
-		x, y := ebiten.CursorPosition()		        
+		x, y := ebiten.CursorPosition()
 		for index, rect := range traffiq.Menu.LangRectangles {
 
 			if rect.Contains(float64(x), float64(y)) {
@@ -180,7 +194,7 @@ func (traffiq *Traffiq) LeftMouseClickHelp() {
 
 func (traffiq *Traffiq) LeftMouseClickAbout() {
 	if traffiq != nil {
-		x, y := ebiten.CursorPosition()		        
+		x, y := ebiten.CursorPosition()
 		for index, rect := range traffiq.Menu.LangRectangles {
 
 			if rect.Contains(float64(x), float64(y)) {
@@ -191,7 +205,6 @@ func (traffiq *Traffiq) LeftMouseClickAbout() {
 		traffiq.ChangeBoard(BOARD_MENU)
 	}
 }
-
 
 func (traffiq *Traffiq) RightMouseClickLoading() {
 	if traffiq != nil {
@@ -207,119 +220,140 @@ func (traffiq *Traffiq) RightMouseClickIntro() {
 
 func (traffiq *Traffiq) RightMouseClickMenu() {
 	if traffiq != nil {
-		
+		traffiq.Temporary_Placeholder()
+
 	}
 }
 
 func (traffiq *Traffiq) RightMouseClickGame() {
 	if traffiq != nil {
-		
+		traffiq.Temporary_Placeholder()
+
 	}
 }
 
 func (traffiq *Traffiq) RightMouseClickOptions() {
 	if traffiq != nil {
-		
+		traffiq.Temporary_Placeholder()
+
 	}
 }
 
 func (traffiq *Traffiq) RightMouseClickLoadgame() {
 	if traffiq != nil {
-		
+		traffiq.Temporary_Placeholder()
+
 	}
 }
 
 func (traffiq *Traffiq) RightMouseClickHiscores() {
 	if traffiq != nil {
-		
+		traffiq.Temporary_Placeholder()
+
 	}
 }
 
 func (traffiq *Traffiq) RightMouseClickSettings() {
 	if traffiq != nil {
-		
+		traffiq.Temporary_Placeholder()
+
 	}
 }
 
 func (traffiq *Traffiq) RightMouseClickNewscore() {
 	if traffiq != nil {
-		
+		traffiq.Temporary_Placeholder()
+
 	}
 }
 
 func (traffiq *Traffiq) RightMouseClickHelp() {
 	if traffiq != nil {
-		
+		traffiq.Temporary_Placeholder()
+
 	}
 }
 
 func (traffiq *Traffiq) RightMouseClickAbout() {
 	if traffiq != nil {
-		
+		traffiq.Temporary_Placeholder()
+
 	}
 }
 
 func (traffiq *Traffiq) MiddleMouseClickLoading() {
 	if traffiq != nil {
-		
+		traffiq.Temporary_Placeholder()
+
 	}
 }
 
 func (traffiq *Traffiq) MiddleMouseClickIntro() {
 	if traffiq != nil {
+		traffiq.Temporary_Placeholder()
+
 	}
 }
 
 func (traffiq *Traffiq) MiddleMouseClickMenu() {
 	if traffiq != nil {
-		
+		traffiq.Temporary_Placeholder()
+
 	}
 }
 
 func (traffiq *Traffiq) MiddleMouseClickGame() {
 	if traffiq != nil {
-		
+		traffiq.Temporary_Placeholder()
+
 	}
 }
 
 func (traffiq *Traffiq) MiddleMouseClickOptions() {
 	if traffiq != nil {
-		
+		traffiq.Temporary_Placeholder()
+
 	}
 }
 
 func (traffiq *Traffiq) MiddleMouseClickLoadgame() {
 	if traffiq != nil {
-		
+		traffiq.Temporary_Placeholder()
+
 	}
 }
 
 func (traffiq *Traffiq) MiddleMouseClickHiscores() {
 	if traffiq != nil {
-		
+		traffiq.Temporary_Placeholder()
+
 	}
 }
 
 func (traffiq *Traffiq) MiddleMouseClickSettings() {
 	if traffiq != nil {
-		
+		traffiq.Temporary_Placeholder()
+
 	}
 }
 
 func (traffiq *Traffiq) MiddleMouseClickNewscore() {
 	if traffiq != nil {
-		
-	}	
+		traffiq.Temporary_Placeholder()
+
+	}
 }
 
 func (traffiq *Traffiq) MiddleMouseClickHelp() {
 	if traffiq != nil {
-		
+		traffiq.Temporary_Placeholder()
+
 	}
 }
 
 func (traffiq *Traffiq) MiddleMouseClickAbout() {
 	if traffiq != nil {
-		
+		traffiq.Temporary_Placeholder()
+
 	}
 }

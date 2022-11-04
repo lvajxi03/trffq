@@ -39,7 +39,7 @@ func NewLane(lt LaneType) *Lane {
 func (lane *Lane) AppendCar(car *Car) bool {
 	if lane != nil && car != nil {
 		if lane.Length < lane.Capacity + car.Length + CAR_MARGIN {
-			// TODO
+			lane.Cars.Append(car)
 		}
 	}
 	return false

@@ -6,8 +6,8 @@ import (
 	"github.com/hajimehoshi/ebiten/v2"
 	"github.com/hajimehoshi/ebiten/v2/ebitenutil"
 	"github.com/hajimehoshi/ebiten/v2/text"
+	"github.com/lvajxi03/trffq/assets"
 	"image/color"
-"github.com/lvajxi03/trffq/assets"
 )
 
 var GameKeys [46]ebiten.Key = [46]ebiten.Key{
@@ -48,15 +48,15 @@ func (traffiq *Traffiq) Draw(screen *ebiten.Image) {
 	}
 }
 
-func (traffiq *Traffiq) PaintLoad (screen *ebiten.Image) {
+func (traffiq *Traffiq) PaintLoad(screen *ebiten.Image) {
 	op := &ebiten.DrawImageOptions{}
 	traffiq.Canvas.DrawImage(assets.Background_Default, op)
 	c := color.RGBA{R: 0, G: 0, B: 0, A: 128}
 	ebitenutil.DrawRect(traffiq.Canvas, 0, 960, ARENA_WIDTH, 120, c)
-	
-	text.Draw(traffiq.Canvas, titles[traffiq.Lang][traffiq.Board], Face_FredokaLarge, int(traffiq.Menu.HeaderLeft + SHADOW_MARGIN), 165, colors["default-font-shadow"])
+
+	text.Draw(traffiq.Canvas, titles[traffiq.Lang][traffiq.Board], Face_FredokaLarge, int(traffiq.Menu.HeaderLeft+SHADOW_MARGIN), 165, colors["default-font-shadow"])
 	text.Draw(traffiq.Canvas, titles[traffiq.Lang][traffiq.Board], Face_FredokaLarge, int(traffiq.Menu.HeaderLeft), 160, colors["default-font-inactive"])
-	op.GeoM.Translate(float64(ARENA_WIDTH - 160), float64(ARENA_HEIGHT - 200))
+	op.GeoM.Translate(float64(ARENA_WIDTH-160), float64(ARENA_HEIGHT-200))
 	traffiq.Canvas.DrawImage(img_flag_en, op)
 	op.GeoM.Translate(float64(80), 0)
 	traffiq.Canvas.DrawImage(img_flag_pl, op)
@@ -83,22 +83,21 @@ func (traffiq *Traffiq) PaintMenu(screen *ebiten.Image) {
 	traffiq.Canvas.DrawImage(assets.Background_Default, op)
 	c := color.RGBA{R: 0, G: 0, B: 0, A: 128}
 	ebitenutil.DrawRect(traffiq.Canvas, 0, 960, ARENA_WIDTH, 120, c)
-	
-	text.Draw(traffiq.Canvas, "TRAFFIQ!", Face_FredokaLarge, int(traffiq.Menu.HeaderLeft + SHADOW_MARGIN), 165, colors["default-font-shadow"])
+
+	text.Draw(traffiq.Canvas, "TRAFFIQ!", Face_FredokaLarge, int(traffiq.Menu.HeaderLeft+SHADOW_MARGIN), 165, colors["default-font-shadow"])
 	text.Draw(traffiq.Canvas, "TRAFFIQ!", Face_FredokaLarge, int(traffiq.Menu.HeaderLeft), 160, colors["default-font-inactive"])
 	i := 0
 	for index, value := range menustr[traffiq.Lang] {
-		text.Draw(traffiq.Canvas, value, Face_Fredoka, 355, 355 + i, colors["default-font-shadow"])
+		text.Draw(traffiq.Canvas, value, Face_Fredoka, 355, 355+i, colors["default-font-shadow"])
 		if index == traffiq.Menu.Option {
-			text.Draw(traffiq.Canvas, value, Face_Fredoka, 350, 350 + i, colors["default-font-active"])
+			text.Draw(traffiq.Canvas, value, Face_Fredoka, 350, 350+i, colors["default-font-active"])
 		} else {
-			text.Draw(traffiq.Canvas, value, Face_Fredoka, 350, 350 + i, colors["default-font-inactive"])
+			text.Draw(traffiq.Canvas, value, Face_Fredoka, 350, 350+i, colors["default-font-inactive"])
 		}
-		
-		
+
 		i += 80
 	}
-	op.GeoM.Translate(float64(ARENA_WIDTH - 160), float64(ARENA_HEIGHT - 200))
+	op.GeoM.Translate(float64(ARENA_WIDTH-160), float64(ARENA_HEIGHT-200))
 	traffiq.Canvas.DrawImage(img_flag_en, op)
 	op.GeoM.Translate(float64(80), 0)
 	traffiq.Canvas.DrawImage(img_flag_pl, op)
@@ -128,10 +127,10 @@ func (traffiq *Traffiq) PaintHiscores(screen *ebiten.Image) {
 	traffiq.Canvas.DrawImage(assets.Background_Default, op)
 	c := color.RGBA{R: 0, G: 0, B: 0, A: 128}
 	ebitenutil.DrawRect(traffiq.Canvas, 0, 960, ARENA_WIDTH, 120, c)
-	
-	text.Draw(traffiq.Canvas, titles[traffiq.Lang][traffiq.Board], Face_FredokaLarge, int(traffiq.Menu.HeaderLeft + SHADOW_MARGIN), 165, colors["default-font-shadow"])
+
+	text.Draw(traffiq.Canvas, titles[traffiq.Lang][traffiq.Board], Face_FredokaLarge, int(traffiq.Menu.HeaderLeft+SHADOW_MARGIN), 165, colors["default-font-shadow"])
 	text.Draw(traffiq.Canvas, titles[traffiq.Lang][traffiq.Board], Face_FredokaLarge, int(traffiq.Menu.HeaderLeft), 160, colors["default-font-inactive"])
-	op.GeoM.Translate(float64(ARENA_WIDTH - 160), float64(ARENA_HEIGHT - 200))
+	op.GeoM.Translate(float64(ARENA_WIDTH-160), float64(ARENA_HEIGHT-200))
 	traffiq.Canvas.DrawImage(img_flag_en, op)
 	op.GeoM.Translate(float64(80), 0)
 	traffiq.Canvas.DrawImage(img_flag_pl, op)
@@ -144,10 +143,10 @@ func (traffiq *Traffiq) PaintNewscore(screen *ebiten.Image) {
 	traffiq.Canvas.DrawImage(assets.Background_Default, op)
 	c := color.RGBA{R: 0, G: 0, B: 0, A: 128}
 	ebitenutil.DrawRect(traffiq.Canvas, 0, 960, ARENA_WIDTH, 120, c)
-	
-	text.Draw(traffiq.Canvas, titles[traffiq.Lang][traffiq.Board], Face_FredokaLarge, int(traffiq.Menu.HeaderLeft + SHADOW_MARGIN), 165, colors["default-font-shadow"])
+
+	text.Draw(traffiq.Canvas, titles[traffiq.Lang][traffiq.Board], Face_FredokaLarge, int(traffiq.Menu.HeaderLeft+SHADOW_MARGIN), 165, colors["default-font-shadow"])
 	text.Draw(traffiq.Canvas, titles[traffiq.Lang][traffiq.Board], Face_FredokaLarge, int(traffiq.Menu.HeaderLeft), 160, colors["default-font-inactive"])
-	op.GeoM.Translate(float64(ARENA_WIDTH - 160), float64(ARENA_HEIGHT - 200))
+	op.GeoM.Translate(float64(ARENA_WIDTH-160), float64(ARENA_HEIGHT-200))
 	traffiq.Canvas.DrawImage(img_flag_en, op)
 	op.GeoM.Translate(float64(80), 0)
 	traffiq.Canvas.DrawImage(img_flag_pl, op)
@@ -160,10 +159,10 @@ func (traffiq *Traffiq) PaintHelp(screen *ebiten.Image) {
 	traffiq.Canvas.DrawImage(assets.Background_Default, op)
 	c := color.RGBA{R: 0, G: 0, B: 0, A: 128}
 	ebitenutil.DrawRect(traffiq.Canvas, 0, 960, ARENA_WIDTH, 120, c)
-	
-	text.Draw(traffiq.Canvas, titles[traffiq.Lang][traffiq.Board], Face_FredokaLarge, int(traffiq.Menu.HeaderLeft + SHADOW_MARGIN), 165, colors["default-font-shadow"])
+
+	text.Draw(traffiq.Canvas, titles[traffiq.Lang][traffiq.Board], Face_FredokaLarge, int(traffiq.Menu.HeaderLeft+SHADOW_MARGIN), 165, colors["default-font-shadow"])
 	text.Draw(traffiq.Canvas, titles[traffiq.Lang][traffiq.Board], Face_FredokaLarge, int(traffiq.Menu.HeaderLeft), 160, colors["default-font-inactive"])
-	op.GeoM.Translate(float64(ARENA_WIDTH - 160), float64(ARENA_HEIGHT - 200))
+	op.GeoM.Translate(float64(ARENA_WIDTH-160), float64(ARENA_HEIGHT-200))
 	traffiq.Canvas.DrawImage(img_flag_en, op)
 	op.GeoM.Translate(float64(80), 0)
 	traffiq.Canvas.DrawImage(img_flag_pl, op)
@@ -176,10 +175,10 @@ func (traffiq *Traffiq) PaintSettings(screen *ebiten.Image) {
 	traffiq.Canvas.DrawImage(assets.Background_Default, op)
 	c := color.RGBA{R: 0, G: 0, B: 0, A: 128}
 	ebitenutil.DrawRect(traffiq.Canvas, 0, 960, ARENA_WIDTH, 120, c)
-	
-	text.Draw(traffiq.Canvas, titles[traffiq.Lang][traffiq.Board], Face_FredokaLarge, int(traffiq.Menu.HeaderLeft + SHADOW_MARGIN), 165, colors["default-font-shadow"])
+
+	text.Draw(traffiq.Canvas, titles[traffiq.Lang][traffiq.Board], Face_FredokaLarge, int(traffiq.Menu.HeaderLeft+SHADOW_MARGIN), 165, colors["default-font-shadow"])
 	text.Draw(traffiq.Canvas, titles[traffiq.Lang][traffiq.Board], Face_FredokaLarge, int(traffiq.Menu.HeaderLeft), 160, colors["default-font-inactive"])
-	op.GeoM.Translate(float64(ARENA_WIDTH - 160), float64(ARENA_HEIGHT - 200))
+	op.GeoM.Translate(float64(ARENA_WIDTH-160), float64(ARENA_HEIGHT-200))
 	traffiq.Canvas.DrawImage(img_flag_en, op)
 	op.GeoM.Translate(float64(80), 0)
 	traffiq.Canvas.DrawImage(img_flag_pl, op)
@@ -191,10 +190,10 @@ func (traffiq *Traffiq) PaintAbout(screen *ebiten.Image) {
 	traffiq.Canvas.DrawImage(assets.Background_Default, op)
 	c := color.RGBA{R: 0, G: 0, B: 0, A: 128}
 	ebitenutil.DrawRect(traffiq.Canvas, 0, 960, ARENA_WIDTH, 120, c)
-	
-	text.Draw(traffiq.Canvas, titles[traffiq.Lang][traffiq.Board], Face_FredokaLarge, int(traffiq.Menu.HeaderLeft + SHADOW_MARGIN), 165, colors["default-font-shadow"])
+
+	text.Draw(traffiq.Canvas, titles[traffiq.Lang][traffiq.Board], Face_FredokaLarge, int(traffiq.Menu.HeaderLeft+SHADOW_MARGIN), 165, colors["default-font-shadow"])
 	text.Draw(traffiq.Canvas, titles[traffiq.Lang][traffiq.Board], Face_FredokaLarge, int(traffiq.Menu.HeaderLeft), 160, colors["default-font-inactive"])
-	op.GeoM.Translate(float64(ARENA_WIDTH - 160), float64(ARENA_HEIGHT - 200))
+	op.GeoM.Translate(float64(ARENA_WIDTH-160), float64(ARENA_HEIGHT-200))
 	traffiq.Canvas.DrawImage(img_flag_en, op)
 	op.GeoM.Translate(float64(80), 0)
 	traffiq.Canvas.DrawImage(img_flag_pl, op)
@@ -227,10 +226,10 @@ func (traffiq *Traffiq) PaintOptions(screen *ebiten.Image) {
 	traffiq.Canvas.DrawImage(assets.Background_Default, op)
 	c := color.RGBA{R: 0, G: 0, B: 0, A: 128}
 	ebitenutil.DrawRect(traffiq.Canvas, 0, 960, ARENA_WIDTH, 120, c)
-	
-	text.Draw(traffiq.Canvas, titles[traffiq.Lang][traffiq.Board], Face_FredokaLarge, int(traffiq.Menu.HeaderLeft + SHADOW_MARGIN), 165, colors["default-font-shadow"])
+
+	text.Draw(traffiq.Canvas, titles[traffiq.Lang][traffiq.Board], Face_FredokaLarge, int(traffiq.Menu.HeaderLeft+SHADOW_MARGIN), 165, colors["default-font-shadow"])
 	text.Draw(traffiq.Canvas, titles[traffiq.Lang][traffiq.Board], Face_FredokaLarge, int(traffiq.Menu.HeaderLeft), 160, colors["default-font-inactive"])
-	op.GeoM.Translate(float64(ARENA_WIDTH - 160), float64(ARENA_HEIGHT - 200))
+	op.GeoM.Translate(float64(ARENA_WIDTH-160), float64(ARENA_HEIGHT-200))
 	traffiq.Canvas.DrawImage(img_flag_en, op)
 	op.GeoM.Translate(float64(80), 0)
 	traffiq.Canvas.DrawImage(img_flag_pl, op)

@@ -3,7 +3,8 @@ package main
 import (
 	"bytes"
 	"github.com/hajimehoshi/ebiten/v2"
-//	"github.com/hajimehoshi/ebiten/v2/text"
+	//	"github.com/hajimehoshi/ebiten/v2/text"
+	"github.com/lvajxi03/trffq/assets"
 	"golang.org/x/image/font"
 	"golang.org/x/image/font/opentype"
 	"image"
@@ -11,20 +12,19 @@ import (
 	"log"
 	"math/rand"
 	"time"
-	"github.com/lvajxi03/trffq/assets"
 )
 
 func main() {
 	rand.Seed(time.Now().UnixNano())
 	tt, _ := opentype.Parse(assets.Font_Fredoka)
 	Face_Fredoka, _ = opentype.NewFace(tt, &opentype.FaceOptions{
-		Size: 72,
-		DPI: 72,
+		Size:    72,
+		DPI:     72,
 		Hinting: font.HintingFull,
 	})
 	Face_FredokaLarge, _ = opentype.NewFace(tt, &opentype.FaceOptions{
-		Size: 160,
-		DPI: 72,
+		Size:    160,
+		DPI:     72,
 		Hinting: font.HintingFull,
 	})
 	ebiten.SetWindowSize(ARENA_WIDTH, ARENA_HEIGHT)

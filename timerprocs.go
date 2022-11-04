@@ -10,8 +10,8 @@ import (
 func TimerLoading(traffiq *Traffiq) {
 	if traffiq != nil {
 		if traffiq.WelcomeCounter > 30 {
-						traffiq.StopTimer("timer-loading")
-						traffiq.ChangeBoard(BOARD_INTRO)
+			traffiq.StopTimer("timer-loading")
+			traffiq.ChangeBoard(BOARD_INTRO)
 		} else {
 			for a := 0; a < ARENA_HEIGHT/40; a++ {
 				Red := uint8(rand.Intn(255))
@@ -27,6 +27,10 @@ func TimerLoading(traffiq *Traffiq) {
 
 func TimerIntro(traffiq *Traffiq) {
 	if traffiq != nil {
-		
+		if traffiq.IntroCounter == 0 {
+			traffiq.Temporary_Placeholder()
+		}
+		traffiq.IntroCounter++
+		traffiq.IntroCounter %= 6
 	}
 }

@@ -54,18 +54,18 @@ const MENU_LETTERS_DELTA = 15
 
 const SHADOW_MARGIN = 5
 
-var colors = map[string]color.Color {
-	"default-font-shadow": color.RGBA{30, 30, 30, 128},
+var colors = map[string]color.Color{
+	"default-font-shadow":   color.RGBA{30, 30, 30, 128},
 	"default-font-inactive": color.RGBA{255, 193, 0, 224},
-	"default-font-active": color.RGBA{180, 46, 178, 224},
+	"default-font-active":   color.RGBA{180, 46, 178, 224},
 }
 
-var menu2board = map[int]Board {
+var menu2board = map[int]Board{
 	0: BOARD_GAME,
 	1: BOARD_OPTIONS,
 	2: BOARD_LOADGAME,
 	3: BOARD_HISCORES,
-	4: BOARD_SETTINGS,	
+	4: BOARD_SETTINGS,
 	5: BOARD_HELP,
 	6: BOARD_ABOUT,
 	7: BOARD_QUIT,

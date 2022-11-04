@@ -3,31 +3,32 @@ package main
 // Game structure and related dependencies: game logic
 
 import (
+	"errors"
 	"fmt"
 	"github.com/hajimehoshi/ebiten/v2"
 	"github.com/hajimehoshi/ebiten/v2/inpututil"
-	"errors"
 )
 
 type Traffiq struct {
-	Timers                                            map[string]*Timer
-	Board                                             Board
-	Mode                                              Mode
-	Message                                           string
-	WelcomeCounter                                    int
-	Canvas                                            *ebiten.Image
-	Options                                           *ebiten.DrawImageOptions
-	Menu *Menu
-	Lang int
+	Timers         map[string]*Timer
+	Board          Board
+	Mode           Mode
+	Message        string
+	IntroCounter   int
+	WelcomeCounter int
+	Canvas         *ebiten.Image
+	Options        *ebiten.DrawImageOptions
+	Menu           *Menu
+	Lang           int
 }
 
 func NewTraffiq() *Traffiq {
 	t := &Traffiq{
-		Timers: map[string]*Timer{},
-Board: BOARD_LOADING,
-Mode: MODE_INIT,
-WelcomeCounter: 0,
-Canvas: ebiten.NewImage(ARENA_WIDTH, ARENA_HEIGHT),
+		Timers:         map[string]*Timer{},
+		Board:          BOARD_LOADING,
+		Mode:           MODE_INIT,
+		WelcomeCounter: 0,
+		Canvas:         ebiten.NewImage(ARENA_WIDTH, ARENA_HEIGHT),
 	}
 	t.Menu = MenuInit(t)
 	return t
@@ -49,10 +50,10 @@ func (traffiq *Traffiq) Update() error {
 			traffiq.LeftMouseClick()
 		}
 		if inpututil.IsMouseButtonJustPressed(ebiten.MouseButtonRight) {
-traffiq.RightMouseClick()
+			traffiq.RightMouseClick()
 		}
 		if inpututil.IsMouseButtonJustPressed(ebiten.MouseButtonMiddle) {
-traffiq.MiddleMouseClick()
+			traffiq.MiddleMouseClick()
 		}
 		if traffiq.Board == BOARD_QUIT {
 			return errors.New("Quit")
@@ -156,7 +157,7 @@ func (traffiq *Traffiq) KeyPress(key ebiten.Key, shift bool, control bool, alt b
 	case BOARD_OPTIONS:
 		traffiq.KeyPressOptions(key, shift, control, alt)
 	case BOARD_LOADGAME:
-		traffiq.KeyPressLoad(key, shift, control, alt)		
+		traffiq.KeyPressLoad(key, shift, control, alt)
 	case BOARD_HISCORES:
 		traffiq.KeyPressHiscores(key, shift, control, alt)
 	case BOARD_SETTINGS:
@@ -180,16 +181,15 @@ func (traffiq *Traffiq) KeyPressIntro(key ebiten.Key, shift bool, control bool, 
 	traffiq.ChangeBoard(BOARD_MENU)
 }
 
-
 func (traffiq *Traffiq) KeyPressOptions(key ebiten.Key, shift bool, control bool, alt bool) {
 	switch key {
 	case ebiten.KeyEscape:
 		traffiq.ChangeBoard(BOARD_MENU)
 	case ebiten.KeyQ:
 		traffiq.ChangeBoard(BOARD_MENU)
-		case ebiten.KeyArrowLeft:
+	case ebiten.KeyArrowLeft:
 		traffiq.ChangeBoard(BOARD_MENU)
-	}	
+	}
 }
 
 func (traffiq *Traffiq) KeyPressLoad(key ebiten.Key, shift bool, control bool, alt bool) {
@@ -198,7 +198,7 @@ func (traffiq *Traffiq) KeyPressLoad(key ebiten.Key, shift bool, control bool, a
 		traffiq.ChangeBoard(BOARD_MENU)
 	case ebiten.KeyQ:
 		traffiq.ChangeBoard(BOARD_MENU)
-		case ebiten.KeyArrowLeft:
+	case ebiten.KeyArrowLeft:
 		traffiq.ChangeBoard(BOARD_MENU)
 	}
 }
@@ -209,7 +209,7 @@ func (traffiq *Traffiq) KeyPressSettings(key ebiten.Key, shift bool, control boo
 		traffiq.ChangeBoard(BOARD_MENU)
 	case ebiten.KeyQ:
 		traffiq.ChangeBoard(BOARD_MENU)
-		case ebiten.KeyArrowLeft:
+	case ebiten.KeyArrowLeft:
 		traffiq.ChangeBoard(BOARD_MENU)
 	}
 }
@@ -239,7 +239,7 @@ func (traffiq *Traffiq) KeyPressGame(key ebiten.Key, shift bool, control bool, a
 		traffiq.ChangeBoard(BOARD_MENU)
 	case ebiten.KeyQ:
 		traffiq.ChangeBoard(BOARD_MENU)
-		case ebiten.KeyArrowLeft:
+	case ebiten.KeyArrowLeft:
 		traffiq.ChangeBoard(BOARD_MENU)
 	}
 }
@@ -250,7 +250,7 @@ func (traffiq *Traffiq) KeyPressHiscores(key ebiten.Key, shift bool, control boo
 		traffiq.ChangeBoard(BOARD_MENU)
 	case ebiten.KeyQ:
 		traffiq.ChangeBoard(BOARD_MENU)
-		case ebiten.KeyArrowLeft:
+	case ebiten.KeyArrowLeft:
 		traffiq.ChangeBoard(BOARD_MENU)
 	}
 }
@@ -261,7 +261,7 @@ func (traffiq *Traffiq) KeyPressNewscore(key ebiten.Key, shift bool, control boo
 		traffiq.ChangeBoard(BOARD_MENU)
 	case ebiten.KeyQ:
 		traffiq.ChangeBoard(BOARD_MENU)
-		case ebiten.KeyArrowLeft:
+	case ebiten.KeyArrowLeft:
 		traffiq.ChangeBoard(BOARD_MENU)
 	}
 }
@@ -276,7 +276,7 @@ func (traffiq *Traffiq) KeyPressAbout(key ebiten.Key, shift bool, control bool, 
 		traffiq.ChangeBoard(BOARD_MENU)
 	case ebiten.KeyQ:
 		traffiq.ChangeBoard(BOARD_MENU)
-		case ebiten.KeyArrowLeft:
+	case ebiten.KeyArrowLeft:
 		traffiq.ChangeBoard(BOARD_MENU)
 	}
 }
@@ -287,7 +287,7 @@ func (traffiq *Traffiq) KeyPressHelp(key ebiten.Key, shift bool, control bool, a
 		traffiq.ChangeBoard(BOARD_MENU)
 	case ebiten.KeyQ:
 		traffiq.ChangeBoard(BOARD_MENU)
-		case ebiten.KeyArrowLeft:
+	case ebiten.KeyArrowLeft:
 		traffiq.ChangeBoard(BOARD_MENU)
 	}
 }
