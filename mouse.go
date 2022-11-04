@@ -126,7 +126,7 @@ func (traffiq *Traffiq) Temporary_Placeholder() {
 
 func (traffiq *Traffiq) LeftMouseClickGame() {
 	if traffiq != nil {
-		switch Traffiq.Mode {
+		switch traffiq.Mode {
 		case MODE_INIT:
 			traffiq.Temporary_Placeholder()
 		case MODE_PLAY:
